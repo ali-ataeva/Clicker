@@ -1,12 +1,17 @@
 <script lang="ts">
 	import '../app.css';
-	import favicon from '$lib/assets/favicon.svg';
 
-	let { children } = $props();
+	let clickCount = $state(0);
+
+	function Add() {
+		clickCount += 1;
+	}
 </script>
 
-<svelte:head>
-	<link rel="icon" href={favicon} />
-</svelte:head>
+<main>
+	<button onclick={Add}>
+		<p>click here</p>
+	</button>
 
-{@render children?.()}
+	<p>Your click count {clickCount}</p>
+</main>
